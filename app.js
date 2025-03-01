@@ -11,11 +11,12 @@ const fs = require('fs');
 const { protect, verifiedOnly } = require('./middleware/auth');
 const { generateToken, JWT_SECRET } = require('./utils/tokenUtils');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://temp:Fgouter55%23@cluster0.bblcm.mongodb.net/aitamblog?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(async () => {
@@ -235,7 +236,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
 }); 
