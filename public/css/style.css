@@ -1,0 +1,23 @@
+/* Custom styles beyond Tailwind */
+.post-image {
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Hover effects */
+.post-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom button styles */
+.interaction-button {
+    transition: all 0.2s ease-in-out;
+}
+
+.interaction-button:hover {
+    transform: scale(1.05);
+} 
