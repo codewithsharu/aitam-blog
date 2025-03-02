@@ -20,4 +20,76 @@
 
 .interaction-button:hover {
     transform: scale(1.05);
+}
+
+:root {
+    --primary-color: #1ab69d;
+    --primary-hover: #159b85;
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Post card styles */
+.post-card {
+    background-color: var(--white);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Interactive elements */
+.interaction-button {
+    color: var(--text-light);
+    transition: all 0.2s ease;
+}
+
+.interaction-button:hover {
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Text styles */
+.heading-text {
+    color: var(--text-dark);
+}
+
+.body-text {
+    color: var(--text-light);
+}
+
+/* Links */
+.primary-link {
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+}
+
+.primary-link:hover {
+    color: var(--primary-hover);
+}
+
+/* Form elements */
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(26, 182, 157, 0.2);
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
 } 

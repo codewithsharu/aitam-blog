@@ -8,22 +8,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .input-focus-effect:focus {
+            box-shadow: 0 0 0 2px rgba(26, 182, 157, 0.2);
+            transition: all 0.2s ease;
+        }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col justify-center">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to AITAM Blog</h2>
-        <p class="mt-2 text-center text-sm text-gray-600">
-            Or
-            <a href="/register" class="font-medium text-blue-600 hover:text-blue-500">create a new account</a>
-        </p>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex flex-col justify-center">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md animate-fade-in-up">
+        <div class="text-center mb-8">
+            <h2 class="mt-6 text-3xl font-extrabold text-gray-900 tracking-tight">Welcome Back</h2>
+            <p class="mt-2 text-sm text-gray-600">
+                Don't have an account?
+                <a href="/register" class="font-medium text-[#1ab69d] hover:text-[#159b85] transition-colors duration-200">Create one now</a>
+            </p>
+        </div>
     </div>
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md animate-fade-in-up" style="animation-delay: 0.1s;">
+        <div class="bg-white py-8 px-4 shadow-lg sm:rounded-xl sm:px-10 border border-gray-100">
             <% if (typeof error !== 'undefined') { %>
-                <div class="mb-4 bg-red-50 border border-red-200 rounded-md p-4">
-                    <div class="flex">
+                <div class="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+                    <div class="flex items-center">
                         <div class="flex-shrink-0">
                             <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
@@ -38,24 +57,26 @@
 
             <form action="/login" method="POST" class="space-y-6">
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                    <div class="mt-1">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+                    <div class="relative">
                         <input id="email" name="email" type="email" autocomplete="email" required
-                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                               class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1ab69d] focus:border-transparent transition-all duration-200 input-focus-effect sm:text-sm"
+                               placeholder="Enter your email">
                     </div>
                 </div>
 
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <div class="mt-1">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <div class="relative">
                         <input id="password" name="password" type="password" autocomplete="current-password" required
-                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                               class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1ab69d] focus:border-transparent transition-all duration-200 input-focus-effect sm:text-sm"
+                               placeholder="Enter your password">
                     </div>
                 </div>
 
                 <div>
                     <button type="submit"
-                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transform transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
                         Sign in
                     </button>
                 </div>
